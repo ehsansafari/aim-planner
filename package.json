@@ -7,7 +7,23 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write .",
     "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,scss,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.9",

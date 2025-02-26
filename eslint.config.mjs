@@ -10,9 +10,13 @@ const compat = new FlatCompat({
 });
 
 export default [
-  // Extend base configurations
   ...compat.extends('plugin:react-hooks/recommended'),
   ...compat.extends('plugin:react/recommended'),
   ...compat.extends('plugin:prettier/recommended'),
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  {
+    rules: {
+      // Add custom rules here
+    },
+  },
 ];
